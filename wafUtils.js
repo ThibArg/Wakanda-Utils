@@ -27,7 +27,7 @@
 	List of routines. _OPT_ means the parameter is optionnal
 	-------------------------------------------------------------------------------
 	* Utilities for all widgets
-		Extending Widget API: The routines are added to the Widget prototype, so you
+		Extending the Widget API: The routines are added to the Widget prototype, so you
 		call them from the Widget API. For example:
 				$$('myGridId').WU_fadeOut();
 				$$('myButtonId').WU_fadeIn();
@@ -41,8 +41,8 @@
 
 
 	* Utilities for Datagrids
-		Extending Widget API: The routines are added to the Widget prototype, so you
-		call them from the Widget API. For example:
+		Extending the Grid API: The routines are added to the Grid prototype, so you
+		call them from the Grid API. For example:
 				$$(myGridId).WU_hideParts({body: true, buttons: true});
 
 		WU_hideParts(inParts, _OPT_ inDoFadeOut)
@@ -148,7 +148,7 @@ if(typeof WU === 'undefined') {
 		
 
 		// --------------------------------------------
-		_GRID_PROTOTYPE.prototype.WU_showParts = function(inParts, inDoFadeIn) {
+		_GRID_PROTOTYPE.WU_showParts = function(inParts, inDoFadeIn) {
 		// --------------------------------------------
 			var jqueryPrefix = "#" + this.id + " ";
 			var fnToCall;
