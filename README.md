@@ -4,16 +4,16 @@ _(c) 4D SAS. Author Thibaud Arguillere_
 
 _License: MIT, "Do whatever You Want With the Source Code"_
 
-_Last update: 2012-06-26_
+_Last update: 2012-07-15_
 
 A set of utilities to handle [Wakanda](http://www.wakanda.org) widgets. This code adds features to the to the WAF ([Wakanda Application Framework](http://doc.wakanda.org/Wakanda-Studio/help/Title/en/page2145.html)), client side.
 
 
 # Usage
 
-Drop the file in the "scripts" folder of your "WebFolder", and include it via the GUI Designer, so it is loaded using WAF loader. We recommand to load it firts (reorganize the file inclusion if needed).)
+Drop the file you need in the "scripts" folder of your "WebFolder", and include it via the GUI Designer, so it is loaded using WAF loader. We recommand to load it firts (reorganize the file inclusion if needed).)
 
-# List of routines
+# wafUtils.js
 
 OPT means the parameter is optionnal
 
@@ -41,3 +41,26 @@ Extending the [Grid](http://doc.wakanda.org/Wakanda-Studio/help/Title/en/page249
         WU_hideParts(inParts, OPT inDoFadeOut)
         WU_showParts(inParts, OPT inDoFadeIn)
 
+
+# wafLocalizer.js
+
+Give a set of original labels (['Cancel', 'Do it', 'Whatever']) and a set of localized labels (['Annuler', 'Allez', 'Quelque chose']), and the utility will replace every label, button title, menu title, placeholder, ... inside the page        
+
+##Usage
+
+        // To be called in the onLoad event of the page
+        var loc = new WAFLocalizer(['Cancel', 'Do it', 'Whatever'], ['Annuler', 'Allez', 'Quelue chose']);
+        loc.localizeWidgets();
+        
+        // Also accepts a key-value array:
+        var arr = [];
+        arr['Cancel'] = 'Annuler';
+        arr['Do it'] = "Allez';
+        var loc = new WAFLocalizer( arr );
+        loc.localizeWidgets();
+        
+
+##Methods
+
+        localizeWidgets();
+        getVersion()
